@@ -1,0 +1,4 @@
+sphinx
+sphinx-press-theme
+wheel
+twine
