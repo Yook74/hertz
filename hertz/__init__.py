@@ -14,7 +14,8 @@ print(foo.in_ghz) # prints 3.001204
 from functools import partial
 
 
-__version__ = '1.0.0'
+__version__ = '1.1.0'
+
 
 class Frequency(float):
     """Represents a generic frequency value.
@@ -22,7 +23,7 @@ class Frequency(float):
     Directly accessing the value results in a megahertz value.
     """
     prefixes = {
-        '': 1e-6, 'k': 1e-3, 'm': 1, 'g': 1e3, 'p': 1e6
+        '': 1e-6, 'k': 1e-3, 'm': 1, 'g': 1e3, 't': 1e6
     }
 
     def __new__(cls, scalar, units: str = 'MHz'):
@@ -104,4 +105,4 @@ Hz = partial(Frequency, units='Hz')
 KHz = kHz = partial(Frequency, units='KHz')
 MHz = partial(Frequency, units='MHz')
 GHz = partial(Frequency, units='GHz')
-PHz = partial(Frequency, units='PHz')
+THz = partial(Frequency, units='THz')
