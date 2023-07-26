@@ -6,7 +6,7 @@ if __name__ == '__main__':
     setuptools.setup(
         name="hertz",
         version=hertz.__version__,
-        author="Andrew Blomenberg",
+        author="Andrew and Izick",
         author_email="andrewBlomen@gmail.com",
         description="A simple, standard, and handy way to represent Hertz, kHz, GHz, etc",
         install_requires=[],

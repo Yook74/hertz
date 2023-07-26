@@ -17,7 +17,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Hertz'
-author = 'Andrew Blomenberg'
+author = 'Andrew and Izick'
 
 # The full version, including alpha/beta/rc tags
 import hertz
