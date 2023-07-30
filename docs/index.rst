@@ -1,5 +1,7 @@
 Hertz Documentation
 =====================
+``pip install hertz``
+
 `hertz` provides a convenient and standard way to represent frequency values.
 The :py:class:`hertz.Frequency` class is a subclass of :py:class:`float`,
 which means that you can use its instances just like regular numbers, but they have some additional features.
