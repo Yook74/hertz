@@ -14,7 +14,7 @@ print(foo.in_ghz) # prints 3.001204
 from functools import partial
 
 
-__version__ = '1.1.0'
+__version__ = '1.1.1'
 
 
 class Frequency(float):
@@ -77,6 +77,9 @@ class Frequency(float):
 
     def __divmod__(self, other):
         return Frequency(super().__divmod__(other), 'MHz')
+
+    def __truediv__(self, other):
+        return Frequency(super().__truediv__(other), 'MHz')
 
     def __floor__(self):
         return Frequency(super().__floor__(), 'MHz')

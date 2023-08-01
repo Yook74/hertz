@@ -21,7 +21,7 @@ author = 'Andrew and Izick'
 
 # The full version, including alpha/beta/rc tags
 
-release = '1.1.0'
+release = '1.1.1'
 
 
 # -- General configuration ---------------------------------------------------
