@@ -1,4 +1,8 @@
 import pickle
+import math
+
+from pytest import raises
+
 from hertz import *
 
 
@@ -31,3 +35,34 @@ def test_math():
     assert (GHz(1) / 2).in_khz == 5e5
     assert (MHz(1) * 2).in_hz == 2e6
 
+
+def test_weird_math():
+    assert math.ceil(MHz(1.2)).in_hz == 2e6
+    assert math.floor(KHz(5)).in_hz == 0
+    assert (MHz(3) % 2).in_mhz == 1
+    assert (MHz(3) // 2).in_khz == 1e3
+    assert (MHz(5) ** 2).in_mhz == 25
+    assert -MHz(2) == -2
+
+
+def test_invalid():
+    with raises(ValueError):
+        Frequency(1, 'jHz')
+
+    with raises(Exception):
+        Frequency(1, None)
+
+    with raises(TypeError):
+        Frequency(None)
+
+    with raises(ValueError):
+        Frequency('eeby deeby')
+
+
+def test_str():
+    assert str(MHz(1)) == '1.00 MHz'
+    assert str(GHz(1e-3)) == '1.00 MHz'
+    assert str(Hz(10002)) == '10.00 KHz'
+    assert str(Hz(10009)) == '10.01 KHz'
+    assert str(Hz(.03)) == '3.000e-02 Hz'
+    assert str(GHz(1e9)) == '1000000.00 THz'
