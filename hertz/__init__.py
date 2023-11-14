@@ -12,9 +12,9 @@ print(foo.in_ghz) # prints 3.001204
 """
 
 from functools import partial
+from math import ceil, floor
 
-
-__version__ = '1.1.1'
+__version__ = '1.2.0'
 
 
 class Frequency(float):
@@ -73,16 +73,13 @@ class Frequency(float):
         return Frequency(super().__abs__(), 'MHz')
 
     def __ceil__(self):
-        return Frequency(super().__ceil__(), 'MHz')
-
-    def __divmod__(self, other):
-        return Frequency(super().__divmod__(other), 'MHz')
+        return Frequency(ceil(float(self)), 'MHz')
 
     def __truediv__(self, other):
         return Frequency(super().__truediv__(other), 'MHz')
 
     def __floor__(self):
-        return Frequency(super().__floor__(), 'MHz')
+        return Frequency(floor(float(self)), 'MHz')
 
     def __floordiv__(self, other):
         return Frequency(super().__floordiv__(other), 'MHz')
